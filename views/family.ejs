@@ -1,128 +1,157 @@
 <% page = { 'title' : 'PAGE_TITLE', 'key': 'INDEX_PAGE_NAME'} %>
 <% assets = {
     'css' : ['family.css'],
-    'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'family.js']
+    'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'https://timezonedb.googlecode.com/files/timezonedb.js',
+            'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'parallels.js', 'family.js', 'timeScript.js',
+            'http://code.angularjs.org/1.2.4/angular.min.js']
 } %>
 
         <div id="navBar" class="navBar">
-            <a class="link" onclick="$('stoneBox').className = 'photoBox clearfix';
-                                     $('photoBox').className = 'hide'; ">Grave Stones</a>
-<!--            <a class="link" onclick="document.getElementById('stoneBox').className = 'photoBox clearfix';
-                                     document.getElementById('photoBox').className = 'hide'; ">Grave Stones</a>
--->            <a class="link" onclick="document.getElementById('photoBox').className = 'photoBox clearfix';
-                                     document.getElementById('stoneBox').className = 'hide'; ">Photographs</a>
+
+            <% if (params.page === 'graves') { %>
+                <a id="gravesLink" class="selected link" onclick='showGraveStonePage()'><%- t("graves_link")%></a>
+            <% if (feature('showPhotos')) { %>
+                <a id="photosLink" class="link" onclick='showPhotographsPage()'><%- t("photographs")%></a>
+            <% } %>
+            <a id="parallelsLink" class="link" onclick='showParallelsPage()'><%- t("parallel")%></a>
+            <a id="demosLink" class="link" onclick='showTimePage()'><%- t("time")%></a>
+
+            <% } else if (params.page === 'photos') { %>
+                <a id="gravesLink" class="link" onclick='showGraveStonePage()'><%- t("graves_link")%></a>
+            <% if (feature('showPhotos')) { %>
+                <a id="photosLink" class="selected link" onclick='showPhotographsPage()'><%- t("photographs")%></a>
+            <% } %>
+            <a id="parallelsLink" class="link" onclick='showParallelsPage()'><%- t("parallel")%></a>
+            <a id="timeLink" class="link" onclick='showTimePage()'><%- t("time")%></a>
+
+            <% } else if (params.page === 'parallel') { %>
+                <a id="gravesLink" class="link" onclick='showGraveStonePage()'><%- t("graves_link")%></a>
+            <% if (feature('showPhotos')) { %>
+                <a id="photosLink" class="link" onclick='showPhotographsPage()'><%- t("photographs")%></a>
+            <% } %>
+            <a id="parallelsLink" class="selected link" onclick='showParallelsPage()'><%- t("parallel")%></a>
+            <a id="timeLink" class="link" onclick='showTimePage()'><%- t("time")%></a>
+
+            <% } else if (params.page === 'time') { %>
+                <a id="gravesLink" class="link" onclick='showGraveStonePage()'><%- t("graves_link")%></a>
+            <% if (feature('showPhotos')) { %>
+                <a id="photosLink" class="link" onclick='showPhotographsPage()'><%- t("photographs")%></a>
+            <% } %>
+            <a id="parallelsLink" class="link" onclick='showParallelsPage()'><%- t("parallel")%></a>
+            <a id="timeLink" class="selected link" onclick='showTimePage()'><%- t("time")%></a>
+            <% } %>
         </div>
 
-
-        <div id="stoneBox" class="photoBox clearfix">
-            <h1 class="heading">Grave Stones</h1>
-            <section id="section1" class="entry clearfix">
-                <figure>
-                    <img class=photo src="<%= img('MarkerAlexanderCazier.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Alexander Cazier</p>
-                        <div>Birth - Death</div>
-                        <div>1872 - 1937</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section2" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('MarkerBenjaminCazierSr.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Benjamin Cazier Sr.</p>
-                        <div>Birth - Death</div>
-                        <div>1824 - 1889</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section3" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('MarkerFrederickAlvinCazier.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Frederick Cazier</p>
-                        <div>Birth - Death</div>
-                        <div>1877 - 1953</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section4" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('MarkerHelenCazierNorton.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Helen Cazier Norton</p>
-                        <div>Birth - Death</div>
-                        <div>1912 - 1984</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section5" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('MarkerHubertBCazier.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Hubert B. Cazier</p>
-                        <div>Birth - Death</div>
-                        <div>1888 - 1967</div>
-                    </figcaption>
-                </figure>
-            </section>
+        <% if (params.page === 'graves') { %>
+            <div id="stoneBox" class="photoBox clearfix">
+        <% } else { %>
+            <div id="stoneBox" class="hide">
+        <% } %>
+            <h1 class="heading"><%- t('graves_link')%></h1>
+            <div id="stoneCount" class="hide"><%= stoneList.length %></div>
+            <div id="page" class="hide"><%= page %></div>
+            <% for(var i=0; i<stoneList.length; i++) { %>
+                <section id="section<%= i %>" class="entry clearfix">
+                    <figure>
+                        <img id="photo<%= i %>" class=photo src="<%= img(stoneList[i]) %>" onclick="editPhoto('<%= i %>')">
+                        <figcaption class="caption">
+                            <p id="name<%= i %>" contenteditable="true"></p>
+                            <small id="dates<%= i %>"></small>
+                            <small id="gender<%= i %>"></small>
+                            <div id="genderValue<%= i %>" class="hide"></div>
+                            <small id="type<%= i %>"></small>
+                            <div id="typeValue<%= i %>" class="hide"></div>
+                            <small id="notes<%= i %>"></small>
+                        </figcaption>
+                    </figure>
+                </section>
+            <% } %>
         </div>
 
-
-        <div id="photoBox" class="hide">
-            <h1 class="heading">Photographs</h1>
-            <section id="section6" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('CharlesDrakeCazier.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Alexander Cazier</p>
-                        <div>Birth - Death</div>
-                        <div>1872 - 1937</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section7" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('BenjaminCazierSr.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Benjamin Cazier Sr.</p>
-                        <div>Birth - Death</div>
-                        <div>1824 - 1889</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section8" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('DanielMarkBurbank.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Alexander Cazier</p>
-                        <div>Birth - Death</div>
-                        <div>1872 - 1937</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section9" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('ElizabethCazier.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Helen Cazier Norton</p>
-                        <div>Birth - Death</div>
-                        <div>1912 - 1984</div>
-                    </figcaption>
-                </figure>
-            </section>
-            <section id="section10" class="entry clearfix">
-                <figure>
-                    <img class="photo" src="<%= img('SamuelCazier.JPG') %>">
-                    <figcaption class="caption">
-                        <p>Hubert B. Cazier</p>
-                        <div>Birth - Death</div>
-                        <div>1888 - 1967</div>
-                    </figcaption>
-                </figure>
-            </section>
+        <% if (params.page === 'photos') { %>
+            <div id="photoBox" class="photoBox clearfix">
+        <% } else { %>
+            <div id="photoBox" class="hide">
+        <% } %>
+            <h1 class="heading"><%- t('photographs')%></h1>
+            <div id="photoCount" class="hide"><%= photoList.length %></div>
+            <% for(var j=0; j<photoList.length; j++) { var i=stoneList.length+j; %>
+                <section id="section<%= i %>" class="entry clearfix">
+                    <figure>
+                        <img id="photo<%= i %>" class=photo src="<%= img(photoList[j]) %>" onclick="editPhoto('<%= i %>')">
+                        <figcaption class="caption">
+                            <p id="name<%= i %>" contenteditable="true"></p>
+                            <small id="dates<%= i %>"></small>
+                            <small id="gender<%= i %>"></small>
+                            <div id="genderValue<%= i %>" class="hide"></div>
+                            <small id="type<%= i %>"></small>
+                            <div id="typeValue<%= i %>" class="hide"></div>
+                            <small id="notes<%= i %>"></small>
+                        </figcaption>
+                    </figure>
+                </section>
+            <% } %>
         </div>
 
-        <div >
+        <% if (params.page === 'parallel') { %>
+            <div id="parallelBox" class="photoBox clearfix">
+        <% } else { %>
+            <div id="parallelBox" class="hide">
+        <% } %>
+                <button class="timeButton" onclick="getAllTimes();"><%- t("showTimes")%></button>
 
-        </div>
+                    <div class="timeEntry"><span>Salt Lake City: </span><span id="denver"></span></div>
+                    <div class="timeEntry"><span>Chicago: </span><span id="chicago"></span></div>
+                    <div class="timeEntry"><span>Los Angeles:: </span><span id="los_angeles"></span></div>
+                    <div class="timeEntry"><span>New York:: </span><span id="new_york"></span></div>
+            </div>
+
+        <% if (params.page === 'time') { %>
+            <div id="timeBox" class="photoBox clearfix">
+        <% } else { %>
+            <div id="timeBox" class="hide">
+        <% } %>
+                <div ng-app="docsTimeDirective">
+                    <div class="timeBox" ng-controller="Ctrl2">
+                        <%- t("theTime")%> <span my-current-time="format"></span>
+                    </div>
+                </div>
+            </div>
+
+        <dialog id="dialog" class="hide">
+            <div class="inputForm">
+<!--                <header class="formHeading"><%- t('input_information') %></header> -->
+                <section>
+                    <label><%- t('name') %></label>
+                    <input id="nameInput" type="text" class="nameField" name="name" placeholder="<%- t('name') %>">
+                </section>
+                <section>
+                    <label><%- t('lifespan') %></label>
+                    <input id="datesInput" type="text" class="nameField" name="lifespan" placeholder="<%- t('lifespan') %>">
+                </section>
+                <section class="genderLabel">
+                    <label><%- t('gender') %></label>
+                    <input id="male" type="radio" name="gender" value="male">
+                    <label id="maleLabel" for="male" class="gender"><%- t('male') %></label>
+                    <input id="female" type="radio" name="gender" value="female">
+                    <label id="femaleLabel" for="female" class="gender"><%- t('female') %></label>
+                </section>
+                <section>
+                    <label for="photoType"><%- t('photo_type') %></label>
+                    <select id="photoType"  placeholder="<%- t('photo_type') %>">
+                      <option value="None"></option>
+                      <option id="PhotoLabel" value="Photo"><%- t('photo') %></option>
+                      <option id="TombstoneLabel" value="Tombstone"><%- t('tombstone') %></option>
+                      <option id="DocumentLabel" value="Document"><%- t('document') %></option>
+                    </select>
+                </section>
+                <section>
+                    <label><%- t('notes') %></label>
+                    <textarea id="noteInput" class="noteInfo" placeholder="<%- t('notes') %>"></textarea>
+                </section>
+                <section>
+                    <button type="button" class="button" onclick="saveDialog();"><%- t('save') %></button>
+                    <button type="button" class="button" onclick="cancelDialog();"><%- t('cancel') %></button>
+                </section>
+            </div>
+        </dialog>

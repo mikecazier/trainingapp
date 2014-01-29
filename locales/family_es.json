@@ -1,0 +1,22 @@
+{
+    "graves_link": "Lápida Sepulcral",
+    "photographs": "Photos",
+    "demos": "Demos",
+    "input_information": "Ingresar Datos",
+    "name": "Nombre",
+    "lifespan": "Duración Vida",
+    "gender": "Sexo",
+    "male": "Masculino",
+    "female": "Femenino",
+    "photo_type": "Tipo de Photo",
+    "photo": "Photo",
+    "tombstone": "Lápida Sepulcral",
+    "document": "Documento",
+    "notes": "Notas",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "parallel": "Paralelas",
+    "time": "Tiempo",
+    "theTime": "El tiempo es: ",
+    "showTimes": "Tiempo Exposición"
+}

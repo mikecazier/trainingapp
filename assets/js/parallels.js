@@ -6,8 +6,8 @@ function showPhotographsPage() {
   window.location.href = "http://localhost:5000/family/photos"
 }
 
-function showDemosPage() {
-  window.location.href = "http://localhost:5000/family/demos"
+function showTimePage() {
+  window.location.href = "http://localhost:5000/family/time"
 }
 
 function showParallelsPage() {

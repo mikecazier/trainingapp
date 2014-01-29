@@ -1,0 +1,22 @@
+{
+	"graves_link": "Tombstones",
+	"photographs": "Photographs",
+    "demos": "Demos",
+    "input_information": "Input Information",
+    "name": "Name",
+    "lifespan": "Lifespan",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "photo_type": "Photo Type",
+    "photo": "Photo",
+    "tombstone": "Tombstone",
+    "document": "Document",
+    "notes": "Notes",
+    "save": "Save",
+    "cancel": "Cancel",
+    "parallel": "Parallel",
+    "time": "Time",
+    "theTime": "The time is:",
+    "showTimes": "Show Times"
+}

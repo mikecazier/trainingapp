@@ -3,10 +3,11 @@ angular.module('components', [])
 		return {
 			restrict: 'E',
 			scope:{
-				name:'bind'
+				time:'@'
 			},
-			templateUrl: 'partials/hello.html'
+			templateUrl: 'views/partials/time.html'
 		}
 	})
 
-angular.module('HelloApp', ['components'])
+
+angular.module('TimeApp', ['components'])

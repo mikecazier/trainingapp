@@ -1,11 +1,30 @@
 <!doctype html>
-<html ng-app="HelloApp">
+<html ng-app="TimeApp">
 <head>
 	<script type="text/javascript" src="lib/angular-1.0.7.js"></script>
-	<script type="text/javascript" src="js/directives.js"></script>
+	<script type="text/javascript" src="assets/js/directives.js"></script>
+
+    <script type="text/javascript">
+    function getTheTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        if (minutes < 10){
+           minutes = "0" + minutes;
+        }
+        var timeOut = hours + ":" + minutes + " ";
+        if(hours > 11){
+            timeOut = timeOut + "PM"
+        } else {
+            timeOut = timeOut + "AM"
+        }
+        return timeOut;
+    }
+    var theTime = getTheTime();
+    </script>
 
 </head>
 <body>
-	<hello-world name="John Lindquist"></hello-world>
+	<hello-world time="javascript:getTheTime();"></hello-world>
 </body>
 </html>

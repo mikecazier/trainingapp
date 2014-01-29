@@ -1,0 +1,27 @@
+<% page = { 'title' : 'DEMOS', 'key': 'INDEX_DEMOS_NAME'} %>
+<% assets = {
+    'css' : ['family.css'],
+    'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'https://timezonedb.googlecode.com/files/timezonedb.js', 'directives.js', 'demos.js']
+} %>
+
+<div id="navBar" class="navBar">
+    <a id="gravesLink" class="link" onclick='showGraveStonePage()'><%- t("graves_link")%></a>
+    <a id="photosLink" class="link" onclick='showPhotographsPage()'><%- t("photographs")%></a>
+    <a id="demosLink" class="selected link" onclick='showDemosPage()'><%- t("demos")%></a>
+</div>
+<div id="demoBox" class="demoBox clearfix">
+    <h1 class="heading"><%- t('demos')%></h1>
+
+    <div ng-app="HelloApp">
+    	<hello name="Dude"></hello>
+    </div>
+
+<!--    <div>
+        <button type="button" class="button" onclick="displayZone('America/Denver');">Doit</button>
+        < div id="output"></div>
+
+
+    </div>-->
+
+
+</div>

@@ -1,21 +1,139 @@
-.page {
-  background-color: #ECF0F6;
+body {
+  /*background-image: url("/img/otherblue.jpg"), url("/img/flame.jpg");*/
+  /*background-color: #ECF0F6;*/
+  /*background-size: 100% 100%;*/
+  /*background-repeat: no-repeat;*/
+
 }
 
-.link:hover{
+input[type="radio"] {
+  margin: 0;
+}
+
+label {
+  margin: 0;
+}
+
+section {
+  margin: 0;
+}
+
+header {
+  margin-bottom: 5px;
+}
+
+small {
+  font-size: 75%;
+  display: block;
+  font-family: "Book Antiqua";
+  font-style: italic;
+}
+
+select {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  width: 60%;
+}
+
+.link:hover {
   text-decoration: underline;
 }
 
-.searchBox {
-  width: 150px;
+.selected {
+  color: #FFFFFF;
+  background-color: highlight;
+}
+
+.selected.link:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: default;
+}
+
+.page {
+  background-color: #ECF0F6;
 }
 
 .hide {
   display: none;
 }
 
+.infoForm {
+  opacity: 1;
+  animation:fadeIn 1s;
+  -webkit-animation:fadeIn 1s; /* Safari and Chrome */
+
+}
+
+.inputForm {
+  width: 100%;
+  border: 1px solid #DEDBD7;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 0 0 10px #DEDBD7;
+  background-color: #F3F3F1;
+  padding: 10px;
+}
+
+.noteInfo {
+  width: 95%;
+  margin: 0;
+}
+
+.nameField {
+  /*width: 250px;*/
+  width: 60%;
+}
+
+.gender {
+  padding-left: 5px;
+  display: inline-block;
+  margin: 0 20px 0 0;
+}
+
+.genderLabel {
+  margin-bottom: 5px;
+}
+
+.button {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.demoBox {
+  min-height: 600px;
+}
+
+.timeButton {
+  margin: 20px;
+}
+
+.timeEntry {
+  margin-bottom: 20px;
+}
+
+.timeBox {
+  margin: 20px;
+}
+
+@keyframes fadeIn
+{
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@-webkit-keyframes fadeIn /* Safari and Chrome */
+{
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
 /* Normal desktop and Landscape tablet (default) */
 @media (min-width: 980px) {
+  dialog {
+    position: absolute;
+    z-index: 10000;
+    width: 300px;
+  }
   .heading {
     margin: 10px 0 0 40px;
     width: 700px;
@@ -23,28 +141,38 @@
   }
   .navBar {
     background-color: #c4e3f3;
-    /*border-radius: 15px;*/
-    /*float:left;*/
-    /*height: 800px;*/
-    /*width: 100px;*/
     padding: 20px;
     padding-left: 10px;
-    /*margin-top: 40px;*/
   }
   .link {
-    padding: 20px;
+    margin: 20px;
+    padding: 3px;
     cursor: pointer;
     margin-bottom: 10px;
     display: inline;
   }
   .photoBox {
-    background-color: #ECF0F6;
-    /*border-radius: 15px;*/
-    /*float:left;*/
+    /*background-color: #ECF0F6;*/
     margin-left: auto;
     margin-right: auto;
-    /*width: 600px;*/
     padding-left: 10px;
+    padding-bottom: 20px;
+
+    /*background-image: url("/img/shamrock.png"), url("/img/gray_background.jpg");*/
+    /*background-color: #ECF0F6;*/
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
+
+      /*Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ECF0F6), to(#CCC0C6));
+     /*Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ECF0F6, #CCC0C6);
+     /*Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ECF0F6, #CCC0C6);
+     /*IE 10 */
+    background: -ms-linear-gradient(top, #ECF0F6, #CCC0C6);
+     /*Opera 11.10+ */
+    background: -o-linear-gradient(top, #ECF0F6, #CCC0C6);
   }
   .entry {
     width: 800px;
@@ -54,11 +182,12 @@
     float: left;
     max-width: 400px;
     max-height: 400px;
+    cursor: pointer;
   }
   .caption {
     float: left;
     width: 250px;
-    padding: 20px;
+    padding-left: 20px;
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -68,6 +197,11 @@
 
 /* Portrait tablet */
 @media (min-width: 768px) and (max-width: 979px) {
+  dialog {
+    position: absolute;
+    z-index: 10000;
+    width: 250px;
+  }
   .heading {
     margin: 10px 0 0 40px;
     width: 500px;
@@ -75,28 +209,32 @@
   }
   .navBar {
     background-color: #c4e3f3;
-    /*border-radius: 15px;*/
-    /*float:left;*/
-    /*height: 800px;*/
-    /*width: 100px;*/
     padding: 20px;
     padding-left: 10px;
-    /*margin-top: 40px;*/
   }
   .link {
-    padding: 20px;
+    margin: 20px;
     cursor: pointer;
     margin-bottom: 10px;
     display: inline;
+    padding: 3px;
   }
   .photoBox {
     background-color: #ECF0F6;
-    /*border-radius: 15px;*/
-    /*float:left;*/
     margin-left: auto;
     margin-right: auto;
-    /*width: 560px;*/
     padding-left: 10px;
+    padding-bottom: 20px;
+     /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ECF0F6), to(#CCC0C6));
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #ECF0F6, #CCC0C6);
   }
   .entry {
     width: 600px;
@@ -106,11 +244,12 @@
     float: left;
     max-width: 350px;
     max-height: 350px;
+    cursor: pointer;
   }
   .caption {
     float: left;
     width: 190px;
-    padding: 20px;
+    padding-left: 20px;
     font-size: 18px;
     margin-left: auto;
     margin-right: auto;
@@ -120,7 +259,12 @@
 }
 
 /* Landscape phone */
-@media (min-width: 480px) and (max-width: 766px) {
+@media (min-width: 480px) and (max-width: 767px) {
+  dialog {
+    position: absolute;
+    z-index: 10000;
+    width: 200px;
+  }
   .heading {
     margin: 10px 0 0 30px;
     width: 300px;
@@ -128,29 +272,34 @@
   }
   .navBar {
     background-color: #c4e3f3;
-    /*border-radius: 15px;*/
     height: 100%;
-    /*width: 100px;*/
     padding: 20px;
     padding-left: 10px;
-    margin-top: 40px;
-    /*margin-left: 80px;*/
   }
   .link {
-    padding: 20px;
+    margin: 0 20px;
     cursor: pointer;
-    margin-bottom: 10px;
-    display: inline;
+    display: block;
+    padding: 3px;
+    width: 150px;
   }
   .photoBox {
-    background-color: #ECF0F6;
-    /*border-radius: 15px;*/
-    /*width: 480px;*/
+    /*background-color: #ECF0F6;*/
     padding-left: 10px;
+    padding-bottom: 20px;
+     /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ECF0F6), to(#CCC0C6));
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #ECF0F6, #CCC0C6);
   }
   .entry {
     width: 480px;
-    /*margin: 20px 0 0 40px;*/
   }
   .photo {
     max-width: 300px;
@@ -158,6 +307,7 @@
     margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
   }
   .caption {
     width: 200px;
@@ -169,6 +319,11 @@
 
 /* Portrait phone */
 @media (max-width: 479px) {
+  dialog {
+    position: absolute;
+    z-index: 10000;
+    width: 200px;
+  }
   .heading {
     margin: 10px 0 0 20px;
     width: 300px;
@@ -176,29 +331,32 @@
   }
   .navBar {
     background-color: #c4e3f3;
-    /*border-radius: 15px;*/
     height: 100%;
-    /*width: 100px;*/
-    /*padding: 20px;*/
-    /*padding-left: 10px;*/
-    /*margin-top: 40px;*/
-    /*margin-left: 60px;*/
+    padding: 10px;
   }
   .link {
-    padding: 20px;
+    margin: 0 20px;
     cursor: pointer;
-    margin-bottom: 10px;
-    display: inline-block;
+    padding: 3px;
+    display: block;
+    width: 150px;
   }
   .photoBox {
-    background-color: #ECF0F6;
-    /*border-radius: 15px;*/
+    /*background-color: #ECF0F6;*/
     width: 400px;
-    /*padding-left: 10px;*/
+    padding-bottom: 20px;
+     /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ECF0F6), to(#CCC0C6));
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #ECF0F6, #CCC0C6);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #ECF0F6, #CCC0C6);
   }
   .entry {
-    /*width: 400px;*/
-    /*margin: 20px 0 0 20px;*/
   }
   .photo {
     max-width: 250px;
@@ -206,6 +364,7 @@
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
   }
   .caption {
     width: 200px;
