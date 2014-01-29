@@ -1,0 +1,128 @@
+<% page = { 'title' : 'PAGE_TITLE', 'key': 'INDEX_PAGE_NAME'} %>
+<% assets = {
+    'css' : ['family.css'],
+    'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'family.js']
+} %>
+
+        <div id="navBar" class="navBar">
+            <a class="link" onclick="$('stoneBox').className = 'photoBox clearfix';
+                                     $('photoBox').className = 'hide'; ">Grave Stones</a>
+<!--            <a class="link" onclick="document.getElementById('stoneBox').className = 'photoBox clearfix';
+                                     document.getElementById('photoBox').className = 'hide'; ">Grave Stones</a>
+-->            <a class="link" onclick="document.getElementById('photoBox').className = 'photoBox clearfix';
+                                     document.getElementById('stoneBox').className = 'hide'; ">Photographs</a>
+        </div>
+
+
+        <div id="stoneBox" class="photoBox clearfix">
+            <h1 class="heading">Grave Stones</h1>
+            <section id="section1" class="entry clearfix">
+                <figure>
+                    <img class=photo src="<%= img('MarkerAlexanderCazier.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Alexander Cazier</p>
+                        <div>Birth - Death</div>
+                        <div>1872 - 1937</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section2" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('MarkerBenjaminCazierSr.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Benjamin Cazier Sr.</p>
+                        <div>Birth - Death</div>
+                        <div>1824 - 1889</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section3" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('MarkerFrederickAlvinCazier.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Frederick Cazier</p>
+                        <div>Birth - Death</div>
+                        <div>1877 - 1953</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section4" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('MarkerHelenCazierNorton.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Helen Cazier Norton</p>
+                        <div>Birth - Death</div>
+                        <div>1912 - 1984</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section5" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('MarkerHubertBCazier.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Hubert B. Cazier</p>
+                        <div>Birth - Death</div>
+                        <div>1888 - 1967</div>
+                    </figcaption>
+                </figure>
+            </section>
+        </div>
+
+
+        <div id="photoBox" class="hide">
+            <h1 class="heading">Photographs</h1>
+            <section id="section6" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('CharlesDrakeCazier.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Alexander Cazier</p>
+                        <div>Birth - Death</div>
+                        <div>1872 - 1937</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section7" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('BenjaminCazierSr.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Benjamin Cazier Sr.</p>
+                        <div>Birth - Death</div>
+                        <div>1824 - 1889</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section8" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('DanielMarkBurbank.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Alexander Cazier</p>
+                        <div>Birth - Death</div>
+                        <div>1872 - 1937</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section9" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('ElizabethCazier.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Helen Cazier Norton</p>
+                        <div>Birth - Death</div>
+                        <div>1912 - 1984</div>
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="section10" class="entry clearfix">
+                <figure>
+                    <img class="photo" src="<%= img('SamuelCazier.JPG') %>">
+                    <figcaption class="caption">
+                        <p>Hubert B. Cazier</p>
+                        <div>Birth - Death</div>
+                        <div>1888 - 1967</div>
+                    </figcaption>
+                </figure>
+            </section>
+        </div>
+
+        <div >
+
+        </div>

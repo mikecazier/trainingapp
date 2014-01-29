@@ -1,0 +1,232 @@
+.page {
+  background-color: #ECF0F6;
+}
+
+.link:hover{
+  text-decoration: underline;
+}
+
+.searchBox {
+  width: 150px;
+}
+
+.hide {
+  display: none;
+}
+
+/* Normal desktop and Landscape tablet (default) */
+@media (min-width: 980px) {
+  .heading {
+    margin: 10px 0 0 40px;
+    width: 700px;
+    font-size: 30px;
+  }
+  .navBar {
+    background-color: #c4e3f3;
+    /*border-radius: 15px;*/
+    /*float:left;*/
+    /*height: 800px;*/
+    /*width: 100px;*/
+    padding: 20px;
+    padding-left: 10px;
+    /*margin-top: 40px;*/
+  }
+  .link {
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: inline;
+  }
+  .photoBox {
+    background-color: #ECF0F6;
+    /*border-radius: 15px;*/
+    /*float:left;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 600px;*/
+    padding-left: 10px;
+  }
+  .entry {
+    width: 800px;
+    margin: 20px 0;
+  }
+  .photo {
+    float: left;
+    max-width: 400px;
+    max-height: 400px;
+  }
+  .caption {
+    float: left;
+    width: 250px;
+    padding: 20px;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+/* Portrait tablet */
+@media (min-width: 768px) and (max-width: 979px) {
+  .heading {
+    margin: 10px 0 0 40px;
+    width: 500px;
+    font-size: 25px;
+  }
+  .navBar {
+    background-color: #c4e3f3;
+    /*border-radius: 15px;*/
+    /*float:left;*/
+    /*height: 800px;*/
+    /*width: 100px;*/
+    padding: 20px;
+    padding-left: 10px;
+    /*margin-top: 40px;*/
+  }
+  .link {
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: inline;
+  }
+  .photoBox {
+    background-color: #ECF0F6;
+    /*border-radius: 15px;*/
+    /*float:left;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 560px;*/
+    padding-left: 10px;
+  }
+  .entry {
+    width: 600px;
+    margin: 20px 0;
+  }
+  .photo {
+    float: left;
+    max-width: 350px;
+    max-height: 350px;
+  }
+  .caption {
+    float: left;
+    width: 190px;
+    padding: 20px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+}
+
+/* Landscape phone */
+@media (min-width: 480px) and (max-width: 766px) {
+  .heading {
+    margin: 10px 0 0 30px;
+    width: 300px;
+    font-size: 20px;
+  }
+  .navBar {
+    background-color: #c4e3f3;
+    /*border-radius: 15px;*/
+    height: 100%;
+    /*width: 100px;*/
+    padding: 20px;
+    padding-left: 10px;
+    margin-top: 40px;
+    /*margin-left: 80px;*/
+  }
+  .link {
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: inline;
+  }
+  .photoBox {
+    background-color: #ECF0F6;
+    /*border-radius: 15px;*/
+    /*width: 480px;*/
+    padding-left: 10px;
+  }
+  .entry {
+    width: 480px;
+    /*margin: 20px 0 0 40px;*/
+  }
+  .photo {
+    max-width: 300px;
+    max-height: 300px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .caption {
+    width: 200px;
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+}
+
+/* Portrait phone */
+@media (max-width: 479px) {
+  .heading {
+    margin: 10px 0 0 20px;
+    width: 300px;
+    font-size: 18px;
+  }
+  .navBar {
+    background-color: #c4e3f3;
+    /*border-radius: 15px;*/
+    height: 100%;
+    /*width: 100px;*/
+    /*padding: 20px;*/
+    /*padding-left: 10px;*/
+    /*margin-top: 40px;*/
+    /*margin-left: 60px;*/
+  }
+  .link {
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .photoBox {
+    background-color: #ECF0F6;
+    /*border-radius: 15px;*/
+    width: 400px;
+    /*padding-left: 10px;*/
+  }
+  .entry {
+    /*width: 400px;*/
+    /*margin: 20px 0 0 20px;*/
+  }
+  .photo {
+    max-width: 250px;
+    max-height: 250px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .caption {
+    width: 200px;
+    font-size: 14px;
+    margin-left: 20px;
+  }
+
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */

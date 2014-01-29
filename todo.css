@@ -1,0 +1,9 @@
+.done-true {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.labelpos {
+  vertical-align: -3px;
+}
+

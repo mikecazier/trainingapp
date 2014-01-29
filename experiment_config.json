@@ -3,6 +3,7 @@
         "devs": ["stephen.lynn"]
     },
     "experiments": {
-        "featureOne": "devs"
+        "featureOne": "devs",
+        "showPhotos": false
     }
 }
