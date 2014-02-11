@@ -1,3 +1,4 @@
+
 var currentIndex = 0;
 
 function locate(name) {
@@ -39,35 +40,28 @@ $(function() {
   var length = document.getElementById("stoneCount").innerHTML
              + document.getElementById("photoCount").innerHTML;
   loadAllValues(parseInt(length));
+//  setupAllBlur();
 });
 
 function loadAllValues(size) {
   for (var i=0; i < size; i++) {
-    loadValue("name" + i);
-    loadValue("dates" + i);
-    loadValue("gender" + i);
-    loadValue("genderValue" + i);
-    loadValue("type" + i);
-    loadValue("typeValue" + i);
-    loadValue("notes" + i);
+    loadValue(NAME, "name" + i);
+    loadValue(LIFESPAN, "dates" + i);
+    loadValue(GENDER, "gender" + i);
+    loadValue(GENDERTYPE, "genderValue" + i);
+    loadValue(PHOTOTYPE, "type" + i);
+    loadValue(PHOTOTYPEVALUE, "typeValue" + i);
+    loadValue(NOTES, "notes" + i);
   }
 }
 
-function loadValue(id) {
+function loadValue(type, id) {
   var edit = document.getElementById(id);
   if (edit) {
-    $(edit).blur(function() {
-      localStorage.setItem(id, edit.innerHTML);
-    });
     if (localStorage.getItem(id)) {
       edit.innerHTML = localStorage.getItem(id);
     }
   }
-}
-
-function saveChanges(id) {
-  var edit = document.getElementById(id);
-  localStorage.setItem(id, edit.innerHTML);
 }
 
 function editPhoto(index) {
@@ -117,18 +111,26 @@ function populateDialog(index) {
   $("#nameInput").focus();
 }
 
-function saveDialog() {
-  $("#dialog").addClass("hide");
-  $("#dialog").removeClass("infoForm");
+function saveChanges(type, id) {
+  var value = document.getElementById(id).innerHTML;
+  personInfo.setValue(currentIndex, type, value);
+  localStorage.setItem(id, value);
+}
+
+function saveDialog(hideDialog) {
+  if (hideDialog) {
+    $("#dialog").addClass("hide");
+    $("#dialog").removeClass("infoForm");
+  }
   var index = currentIndex;
 
   var nameInput = $("#nameInput").val();
   document.getElementById("name" + index).innerHTML = nameInput;
-  saveChanges("name" + index);
+  saveChanges(NAME, "name" + index);
 
   var datesInput = $("#datesInput").val();
   document.getElementById("dates" + index).innerHTML = datesInput;
-  saveChanges("dates" + index);
+  saveChanges(LIFESPAN, "dates" + index);
 
   var genderInput = $('input:radio[name=gender]:checked').val();
   if (genderInput == "male") {
@@ -139,19 +141,25 @@ function saveDialog() {
     document.getElementById("gender" + index).innerHTML = document.getElementById("femaleLabel").innerHTML;
     document.getElementById("genderValue" + index).innerHTML = "F";
   }
-  saveChanges("gender" + index);
-  saveChanges("genderValue" + index);
+  saveChanges(GENDER, "gender" + index);
+  saveChanges(GENDERTYPE, "genderValue" + index);
 
   var typeInput = $("#photoType").val();
   document.getElementById("typeValue" + index).innerHTML = typeInput;
-  var typeValue = document.getElementById(typeInput + "Label").innerHTML;
-  document.getElementById("type" + index).innerHTML = typeValue;
-  saveChanges("type" + index);
-  saveChanges("typeValue" + index);
+  document.getElementById("type" + index).innerHTML = document.getElementById(typeInput + "Label").innerHTML;
+  saveChanges(PHOTOTYPE, "type" + index);
+  saveChanges(PHOTOTYPEVALUE, "typeValue" + index);
 
   var notesInput = $("#noteInput").val();
   document.getElementById("notes" + index).innerHTML = notesInput;
-  saveChanges("notes" + index);
+  saveChanges(NOTES, "notes" + index);
+
+
+
+    // Testing
+  if (hideDialog) {
+    personInfo.showPERSON(index);
+  }
 }
 
 function cancelDialog() {

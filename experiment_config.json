@@ -4,6 +4,6 @@
     },
     "experiments": {
         "featureOne": "devs",
-        "showPhotos": false
+        "showPhotos": true
     }
 }

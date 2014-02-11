@@ -2,7 +2,8 @@
 <% assets = {
     'css' : ['family.css'],
     'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'https://timezonedb.googlecode.com/files/timezonedb.js',
-            'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'parallels.js', 'family.js', 'timeScript.js',
+            'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'parallels.js',
+            'personInfo.js', 'family.js', 'timeScript.js',
             'http://code.angularjs.org/1.2.4/angular.min.js']
 } %>
 
@@ -123,23 +124,23 @@
 <!--                <header class="formHeading"><%- t('input_information') %></header> -->
                 <section>
                     <label><%- t('name') %></label>
-                    <input id="nameInput" type="text" class="nameField" name="name" placeholder="<%- t('name') %>">
+                    <input id="nameInput" type="text" class="nameField" name="name" onblur="saveDialog(false);" placeholder="<%- t('name') %>">
                 </section>
                 <section>
                     <label><%- t('lifespan') %></label>
-                    <input id="datesInput" type="text" class="nameField" name="lifespan" placeholder="<%- t('lifespan') %>">
+                    <input id="datesInput" type="text" class="nameField" name="lifespan" onblur="saveDialog(false);" placeholder="<%- t('lifespan') %>">
                 </section>
                 <section class="genderLabel">
                     <label><%- t('gender') %></label>
-                    <input id="male" type="radio" name="gender" value="male">
+                    <input id="male" type="radio" name="gender" value="male" onblur="saveDialog(false);">
                     <label id="maleLabel" for="male" class="gender"><%- t('male') %></label>
-                    <input id="female" type="radio" name="gender" value="female">
+                    <input id="female" type="radio" name="gender" value="female" onblur="saveDialog(false);">
                     <label id="femaleLabel" for="female" class="gender"><%- t('female') %></label>
                 </section>
                 <section>
                     <label for="photoType"><%- t('photo_type') %></label>
-                    <select id="photoType"  placeholder="<%- t('photo_type') %>">
-                      <option value="None"></option>
+                    <select id="photoType" onblur="saveDialog(false);" placeholder="<%- t('photo_type') %>">
+                      <option id="NoneLabel" value="None"></option>
                       <option id="PhotoLabel" value="Photo"><%- t('photo') %></option>
                       <option id="TombstoneLabel" value="Tombstone"><%- t('tombstone') %></option>
                       <option id="DocumentLabel" value="Document"><%- t('document') %></option>
@@ -147,11 +148,12 @@
                 </section>
                 <section>
                     <label><%- t('notes') %></label>
-                    <textarea id="noteInput" class="noteInfo" placeholder="<%- t('notes') %>"></textarea>
+                    <textarea id="noteInput" class="noteInfo" onblur="saveDialog(false);" placeholder="<%- t('notes') %>"></textarea>
                 </section>
                 <section>
-                    <button type="button" class="button" onclick="saveDialog();"><%- t('save') %></button>
-                    <button type="button" class="button" onclick="cancelDialog();"><%- t('cancel') %></button>
+<!--                    <button type="button" class="button" onclick="event.stopPropagation(); saveDialog(true);"><%- t('save') %></button> -->
+<!--                    <button type="button" class="button" onclick="cancelDialog();"><%- t('cancel') %></button> -->
+                    <button type="button" class="button" onclick="cancelDialog();"><%- t('done') %></button>
                 </section>
             </div>
         </dialog>
