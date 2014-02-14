@@ -35,6 +35,10 @@ select {
   width: 60%;
 }
 
+.headDiv {
+  margin-top: 30px;
+}
+
 .link:hover {
   text-decoration: underline;
 }
@@ -96,6 +100,12 @@ select {
 
 .button {
   margin-top: 10px;
+  margin-right: 20px;
+}
+
+.persistButton {
+  margin-left: 30px;
+  margin-top: -10px;
   margin-right: 20px;
 }
 

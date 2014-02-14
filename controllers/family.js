@@ -1,5 +1,7 @@
 module.exports = function(app) {
 
+  /* Endpoints to bring up pages. */
+
   app.get('/family', function(req, res){
     var stones = setupStones();
     var photos = setupPhotos();
@@ -51,6 +53,13 @@ module.exports = function(app) {
       params: {page: "time", showPhotos: true}
     });
   });
+
+  /* Endpoints to send and retrieve info from the "server" */
+  app.get('/family/save', function(req, res){
+    console.out("Endpoint Called: " + req)
+  });
+
+
 
 
   function setupStones() {

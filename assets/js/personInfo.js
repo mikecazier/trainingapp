@@ -105,6 +105,35 @@ var personInfo = (function () {
     }
   };
 
+  person.persist = function() {
+    var data = {};
+    data.name = name;
+    data.lifeSpan = lifeSpan;
+    data.gender = gender;
+    data.genderType = genderType;
+    data.photoType = photoType;
+    data.photoTypeValue = photoTypeValue;
+    data.notes = notes;
+
+    var output = JSON.stringify(data);
+
+    $.ajax({
+        type: "POST",
+        url: "/family/save",
+        // The key needs to match your method's input parameter (case-sensitive).
+        data: output,
+//        data: JSON.stringify({ Persons: data }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data){alert(data);},
+        failure: function(errMsg) {
+            alert(errMsg);
+        }
+    });
+  }
+
+
+
   //Testing
   person.showPERSON = function (index) {
     var stuff = "saved to object: ";

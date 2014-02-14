@@ -3,7 +3,7 @@
     'css' : ['family.css'],
     'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'https://timezonedb.googlecode.com/files/timezonedb.js',
             'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'parallels.js',
-            'personInfo.js', 'family.js', 'timeScript.js',
+            'formData.js', 'personInfo.js', 'family.js', 'timeScript.js',
             'http://code.angularjs.org/1.2.4/angular.min.js']
 } %>
 
@@ -48,7 +48,10 @@
         <% } else { %>
             <div id="stoneBox" class="hide">
         <% } %>
-            <h1 class="heading"><%- t('graves_link')%></h1>
+            <div class="headDiv">
+                <span class="heading"><%- t('graves_link')%></SPan>
+                <button type="button" class="persistButton" onclick="personInfo.persist();"><%- t('save') %></button>
+            </div>
             <div id="stoneCount" class="hide"><%= stoneList.length %></div>
             <div id="page" class="hide"><%= page %></div>
             <% for(var i=0; i<stoneList.length; i++) { %>
