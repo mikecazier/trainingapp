@@ -3,7 +3,7 @@
     'css' : ['family.css'],
     'js' : ['http://code.angularjs.org/angular-1.0.0rc3.min.js', 'https://timezonedb.googlecode.com/files/timezonedb.js',
             'http://documentcloud.github.com/underscore/underscore-min.js', 'jquery-1.10.2.min.js', 'parallels.js',
-            'formData.js', 'personInfo.js', 'family.js', 'timeScript.js',
+            'closures.js', 'formData.js', 'personInfo.js', 'family.js', 'timeScript.js',
             'http://code.angularjs.org/1.2.4/angular.min.js']
 } %>
 
@@ -120,7 +120,35 @@
                         <%- t("theTime")%> <span my-current-time="format"></span>
                     </div>
                 </div>
+
+                <div style="margin-top: 30px;">
+                    <span>Closures and Exporting</span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="globalFunc(true)">Call Exported Function</button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="badCall()">Call Non-Exported Function</button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="testObjectInner()">Test Object Inner Function</button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="testFunctionInner()">Test Function Inner Function</button>
+                </div>
+                <div style="margin-top: 30px;">
+                    <span>Exceptions and Prototyping</span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <input id="protoInput" type="text">
+                    <button onclick="showPrototype($('#protoInput'))">Show Prototyping</button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="fireException()">Fire Exception</button>
+                </div>
             </div>
+
+
 
         <dialog id="dialog" class="hide">
             <div class="inputForm">

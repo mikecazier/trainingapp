@@ -1,10 +1,10 @@
 {
-	"graves_link": "Tombstones",
-	"photographs": "Photographs",
+  	"graves_link": "Tombstones",
+	  "photographs": "Photographs",
     "demos": "Demos",
     "input_information": "Input Information",
     "name": "Name",
-    "lifespan": "Lifespan",
+    "lifespan": "Lifespan Years (ie: 1809-1890)",
     "gender": "Gender",
     "male": "Male",
     "female": "Female",

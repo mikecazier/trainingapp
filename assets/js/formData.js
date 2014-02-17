@@ -1,10 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: mikecazier
- * Date: 2/12/14
- * Time: 7:44 AM
- * To change this template use File | Settings | File Templates.
- */
 
 var formData = {
 
