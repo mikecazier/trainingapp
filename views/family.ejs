@@ -158,7 +158,7 @@
                     <input id="nameInput" type="text" class="nameField" name="name" onblur="saveDialog(false);" placeholder="<%- t('name') %>">
                 </section>
                 <section>
-                    <label><%- t('lifespan') %></label>
+                    <label><%- t('lifespanLabel') %></label>
                     <input id="datesInput" type="text" class="nameField" name="lifespan" onblur="saveDialog(false);" placeholder="<%- t('lifespan') %>">
                 </section>
                 <section class="genderLabel">
@@ -182,9 +182,10 @@
                     <textarea id="noteInput" class="noteInfo" onblur="saveDialog(false);" placeholder="<%- t('notes') %>"></textarea>
                 </section>
                 <section>
-<!--                    <button type="button" class="button" onclick="event.stopPropagation(); saveDialog(true);"><%- t('save') %></button> -->
-<!--                    <button type="button" class="button" onclick="cancelDialog();"><%- t('cancel') %></button> -->
-                    <button type="button" class="button" onclick="cancelDialog();"><%- t('done') %></button>
+<!--                    <button type="button" class="button" onclick="event.stopPropagation(); saveButton(true);"><%- t('save') %></button> -->
+<!--                    <button type="button" class="button" onclick="saveButton();"><%- t('cancel') %></button> -->
+                    <button type="button" class="button" onclick="saveButton();"><%- t('done') %></button>
+                    <span id="errorBox" class="errorBox">Invalid Input</span>
                 </section>
             </div>
         </dialog>

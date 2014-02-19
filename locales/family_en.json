@@ -4,7 +4,8 @@
     "demos": "Demos",
     "input_information": "Input Information",
     "name": "Name",
-    "lifespan": "Lifespan Years (ie: 1809-1890)",
+    "lifespanLabel": "Lifespan Years (ie: 1809-1890)",
+    "lifespan": "Lifespan",
     "gender": "Gender",
     "male": "Male",
     "female": "Female",
@@ -19,5 +20,6 @@
     "time": "Time",
     "theTime": "The time is:",
     "showTimes": "Show Times",
-    "done": "Done"
+    "done": "Done",
+    "invalidImput": "Invalid Input"
 }

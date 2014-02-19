@@ -125,6 +125,22 @@ select {
   margin: 20px;
 }
 
+.errorBox {
+  background-color: firebrick;
+  color: white;
+  padding: 4px 10px;
+  margin: 10px 0 0 32px;
+  display: inline-block !important;
+}
+
+.errorBox.hide {
+  display: none !important;
+}
+
+.errorField {
+  background-color: pink !important;
+}
+
 @keyframes fadeIn
 {
 from {opacity: 0;}

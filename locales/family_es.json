@@ -19,5 +19,6 @@
     "time": "Tiempo",
     "theTime": "El tiempo es: ",
     "showTimes": "Tiempo Exposición",
-    "done": "Terminado"
+    "done": "Terminado",
+    "invalidImput": "Invalido Ingresar"
 }

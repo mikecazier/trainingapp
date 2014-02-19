@@ -1,5 +1,6 @@
 
 var currentIndex = 0;
+var invalidForm = false;
 
 function locate(name) {
   window.alert(name);
@@ -67,53 +68,30 @@ function loadValue(type, index, id) {
 }
 
 function editPhoto(index) {
-  formData.clearFormData();
-  $("#dialog").addClass("hide");
-  $("#dialog").removeClass("infoForm");
-  currentIndex = index;
-  var element = document.getElementById("photo" + index);
-  if ($(window).width() > 767) {
-    x=$('#photo'+index).offset().left + $('#photo'+index).outerWidth(true) + 10;
-    y=$("#photo" + index).offset().top;
+  if (!invalidForm) {
+    $("#errorBox").hide();
+    formData.clearFormData();
+    $("#dialog").addClass("hide");
+    $("#dialog").removeClass("infoForm");
+    currentIndex = index;
+    var element = document.getElementById("photo" + index);
+    if ($(window).width() > 767) {
+      x=$('#photo'+index).offset().left + $('#photo'+index).outerWidth(true) + 10;
+      y=$("#photo" + index).offset().top;
+    }
+    else {
+      x=$('#photo'+index).offset().left;
+      y=$('#photo'+index).offset().top + $('#photo'+index).outerHeight(true);
+    }
+    $("#dialog").css({left:x, top:y});
+    $("#dialog").removeClass("hide");
+    $("#dialog").addClass("infoForm");
+    populateDialog(index);
   }
-  else {
-    x=$('#photo'+index).offset().left;
-    y=$('#photo'+index).offset().top + $('#photo'+index).outerHeight(true);
-  }
-  $("#dialog").css({left:x, top:y});
-  $("#dialog").removeClass("hide");
-  $("#dialog").addClass("infoForm");
-  populateDialog(index);
 }
 
 function populateDialog(index) {
-
   formData.putFormData(index);
-
-//  var name = document.getElementById("name" + index);
-//  $("#nameInput").val(name.innerHTML);
-//
-//  var lifespan = document.getElementById("dates" + index);
-//  $("#datesInput").val(lifespan.innerHTML);
-//
-//  var gender = document.getElementById("genderValue" + index).innerHTML;
-//  if (gender == "M") {
-//    $("input[name=male]").attr('checked', true);
-//  }
-//  else if (gender == "F") {
-//    $("input[name=female]").attr('checked', true);
-//  }
-//  else {
-//    $("input[name=male]").attr('checked', false);
-//    $("input[name=female]").attr('checked', false);
-//  }
-//
-//  var type = document.getElementById("typeValue" + index);
-//  $("#photoType").val(type.innerHTML);
-//
-//  var notes = document.getElementById("notes" + index);
-//  $("#noteInput").val(notes.innerHTML);
-
   $("#nameInput").focus();
 }
 
@@ -126,6 +104,8 @@ function saveChanges(type, id, value) {
 function saveDialog(hideDialog) {
 
   formData.getFormData();
+
+  validateForm();
 
   if (hideDialog) {
     $("#dialog").addClass("hide");
@@ -148,7 +128,7 @@ function saveDialog(hideDialog) {
     document.getElementById("genderValue" + index).innerHTML = "F";
   }
   saveChanges(GENDER, "gender" + index, formData.gender);
-  saveChanges(GENDERTYPE, "genderValue" + index), formData.genderValue;
+  saveChanges(GENDERTYPE, "genderValue" + index, formData.genderValue);
 
   document.getElementById("typeValue" + index).innerHTML = formData.photoTypeValue;
   document.getElementById("type" + index).innerHTML = document.getElementById(formData.photoType + "Label").innerHTML;
@@ -158,45 +138,64 @@ function saveDialog(hideDialog) {
   document.getElementById("notes" + index).innerHTML = formData.notes;
   saveChanges(NOTES, "notes" + index, formData.notes);
 
-//  var nameInput = $("#nameInput").val();
-//  document.getElementById("name" + index).innerHTML = nameInput;
-//  saveChanges(NAME, "name" + index);
-//
-//  var datesInput = $("#datesInput").val();
-//  document.getElementById("dates" + index).innerHTML = datesInput;
-//  saveChanges(LIFESPAN, "dates" + index);
-//
-//  var genderInput = $('input:radio[name=gender]:checked').val();
-//  if (genderInput == "male") {
-//    document.getElementById("gender" + index).innerHTML = document.getElementById("maleLabel").innerHTML;
-//    document.getElementById("genderValue" + index).innerHTML = "M";
-//  }
-//  else if (genderInput == "female") {
-//    document.getElementById("gender" + index).innerHTML = document.getElementById("femaleLabel").innerHTML;
-//    document.getElementById("genderValue" + index).innerHTML = "F";
-//  }
-//  saveChanges(GENDER, "gender" + index);
-//  saveChanges(GENDERTYPE, "genderValue" + index);
-//
-//  var typeInput = $("#photoType").val();
-//  document.getElementById("typeValue" + index).innerHTML = typeInput;
-//  document.getElementById("type" + index).innerHTML = document.getElementById(typeInput + "Label").innerHTML;
-//  saveChanges(PHOTOTYPE, "type" + index);
-//  saveChanges(PHOTOTYPEVALUE, "typeValue" + index);
-//
-//  var notesInput = $("#noteInput").val();
-//  document.getElementById("notes" + index).innerHTML = notesInput;
-//  saveChanges(NOTES, "notes" + index);
-
-
-
     // Testing
   if (hideDialog) {
     personInfo.showPERSON(index);
   }
 }
 
-function cancelDialog() {
-  $("#dialog").addClass("hide");
-  $("#dialog").removeClass("infoForm");
+function saveButton() {
+  if (!invalidForm) {
+    $("#dialog").addClass("hide");
+    $("#dialog").removeClass("infoForm");
+  }
+}
+
+// Validation functions
+function validName(nameValue) {
+  if (nameValue.length == 0) {
+    return true;
+  }
+  var myRe = /[^\w\s]/;
+  return !myRe.test(nameValue);
+}
+
+function validDate(dateValue) {
+  if (dateValue.length == 0) {
+    return true;
+  }
+  var myRe = /[^\d\s-]/;
+  return !myRe.test(dateValue);
+}
+
+function validNote(noteValue) {
+  if (noteValue.length == 0) {
+    return true;
+  }
+  var myRe = /[^\w\s,.!?]/;
+  return !myRe.test(noteValue);
+}
+
+function validateForm() {
+  $("#errorBox").addClass("hide");
+  invalidForm = false;
+  $("#nameInput").removeClass("errorField");
+  $("#datesInput").removeClass("errorField");
+  $("#notesInput").removeClass("errorField");
+
+  if (!validName(formData.fullName)) {
+    $("#errorBox").removeClass("hide");
+    invalidForm = true;
+    $("#nameInput").addClass("errorField");
+  }
+  if (!validDate(formData.lifeSpan)) {
+    $("#errorBox").removeClass("hide");
+    invalidForm = true;
+    $("#datesInput").addClass("errorField");
+  }
+  if (!validNote(formData.notes)) {
+    $("#errorBox").removeClass("hide");
+    invalidForm = true;
+    $("#notesInput").addClass("errorField");
+  }
 }

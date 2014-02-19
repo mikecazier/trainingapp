@@ -68,15 +68,18 @@ var formData = {
       $("input[name=female]").attr('checked', false);
     }
 
-    if (!this.typeValue) {
-      this.typeValue = document.getElementById("typeValue" + index).innerHTML;
+    if (!this.photoTypeValue) {
+      this.photoTypeValue = document.getElementById("typeValue" + index).innerHTML;
     }
-    $("#photoType").val(typeValue);
+    if (!this.photoTypeValue) {
+      this.photoTypeValue = "None";
+    }
+    $("#photoType").val(this.photoTypeValue);
 
     if (!this.notes) {
-      this.notes = document.getElementById("notes" + index);
+      this.notes = document.getElementById("notes" + index).innerHTML;
     }
-    $("#noteInput").val(this.notes.innerHTML);
+    $("#noteInput").val(this.notes);
   },
 
   clearFormData : function() {
@@ -85,7 +88,7 @@ var formData = {
     this.gender = "";
     this.genderValue = "";
     this.photoType = "";
-    this.photoTypeValue = "";
+    this.photoTypeValue = "None";
     this.notes = "";
   }
 };
