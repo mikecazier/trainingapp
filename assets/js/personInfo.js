@@ -130,7 +130,7 @@ var personInfo = (function () {
             alert(errMsg);
         }
     });
-  }
+  };
 
 
 

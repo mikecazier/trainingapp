@@ -61,16 +61,6 @@
   function showPrototype(stuff) {
     whatever.myOwnFunction(stuff.val());
   }
-//  function Ninja(){}
-//  var whatever = new Ninja();
-//
-//  Ninja.prototype.myOwnFunction = function(stuff) {
-//    alert("Called Ninja.prototype.myOwnFunction() with: " + stuff);
-//  };
-//
-//  function showPrototype(stuff) {
-//    whatever.myOwnFunction(stuff.val());
-//  }
 
 //Exceptions
   function fireException() {

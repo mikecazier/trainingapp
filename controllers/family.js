@@ -55,7 +55,7 @@ module.exports = function(app) {
   });
 
   /* Endpoints to send and retrieve info from the "server" */
-  app.get('/family/save', function(req, res){
+  app.put('/family/save', function(req, res){
     console.out("Endpoint Called: " + req)
   });
 
